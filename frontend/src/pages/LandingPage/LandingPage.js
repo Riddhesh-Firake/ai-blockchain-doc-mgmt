@@ -48,6 +48,31 @@ function LandingPage() {
         </svg>
       ),
       color: 'var(--warning-color)'
+    },
+    {
+      title: 'Secure Document Sharing',
+      description: 'Share documents securely with granular permissions and time-based access controls.',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16,6 12,2 8,6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+          <circle cx="18" cy="8" r="3"/>
+        </svg>
+      ),
+      color: '#8b5cf6'
+    },
+    {
+      title: 'MetaMask Integration',
+      description: 'Simplified wallet connection with MetaMask and Ganache for seamless blockchain interactions.',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+      ),
+      color: '#f59e0b'
     }
   ];
 
@@ -77,22 +102,49 @@ function LandingPage() {
           <div className="hero-visual">
             <div className="hero-graphic">
               <div className="floating-card card-1">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
                 </svg>
                 <span>Secure</span>
               </div>
               <div className="floating-card card-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 1l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/>
                 </svg>
                 <span>AI-Powered</span>
               </div>
               <div className="floating-card card-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M4 4h16v16H4z"/>
                 </svg>
                 <span>Verified</span>
+              </div>
+              <div className="floating-card card-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                  <polyline points="16,6 12,2 8,6"/>
+                  <line x1="12" y1="2" x2="12" y2="15"/>
+                  <circle cx="18" cy="8" r="3"/>
+                </svg>
+                <span>Share</span>
+              </div>
+              <div className="floating-card card-5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="3" y="11" width="18" height="10" rx="2" ry="2"/>
+                  <circle cx="12" cy="16" r="1"/>
+                  <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+                  <line x1="17" y1="4" x2="17" y2="10"/>
+                  <line x1="14" y1="7" x2="20" y2="7"/>
+                </svg>
+                <span>Revoke</span>
+              </div>
+              <div className="floating-card card-6">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                <span>MetaMask</span>
               </div>
             </div>
           </div>
@@ -106,7 +158,7 @@ function LandingPage() {
             <h2 className="section-title">Everything you need to manage documents</h2>
             <p className="section-description">
               Our comprehensive platform provides all the tools you need for secure, 
-              intelligent document management.
+              intelligent document management with blockchain technology.
             </p>
           </div>
 
@@ -138,19 +190,22 @@ function LandingPage() {
                 </div>
                 <div className="benefit-content">
                   <h4>Enterprise Security</h4>
-                  <p>Bank-grade encryption with blockchain verification ensures your documents are always secure.</p>
+                  <p>Bank-grade encryption with blockchain verification ensures your documents are always secure and tamper-proof.</p>
                 </div>
               </div>
               
               <div className="benefit-item">
                 <div className="benefit-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                    <polyline points="16,6 12,2 8,6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                    <circle cx="18" cy="8" r="3"/>
                   </svg>
                 </div>
                 <div className="benefit-content">
-                  <h4>Lightning Fast</h4>
-                  <p>Upload, process, and analyze documents in seconds with our optimized infrastructure.</p>
+                  <h4>Smart Sharing & Access Control</h4>
+                  <p>Share documents securely with granular permissions and instantly revoke access when needed.</p>
                 </div>
               </div>
               
@@ -161,8 +216,8 @@ function LandingPage() {
                   </svg>
                 </div>
                 <div className="benefit-content">
-                  <h4>AI Intelligence</h4>
-                  <p>Advanced AI algorithms provide intelligent document analysis and actionable insights.</p>
+                  <h4>AI Intelligence & MetaMask Integration</h4>
+                  <p>Advanced AI algorithms provide intelligent document analysis with seamless blockchain wallet integration.</p>
                 </div>
               </div>
             </div>
@@ -176,7 +231,7 @@ function LandingPage() {
           <div className="cta-content">
             <h2 className="cta-title">Ready to get started?</h2>
             <p className="cta-description">
-              Join thousands of users who trust DocAnalyzer for their document management needs.
+              Join thousands of users who trust DocAnalyzer for their secure document management needs.
             </p>
             <Link to="/auth" className="btn btn-primary btn-lg">
               Start Free Today
