@@ -1,0 +1,248 @@
+# ======================================
+# DOCUMENT ANALYZER - APPLICATION CONFIGURATION
+# ======================================
+# Copy this file to application.properties and update with your actual values
+# DO NOT commit application.properties with real credentials to version control
+
+spring.application.name=document-analyzer
+
+# ======================================
+# SERVER CONFIGURATION
+# ======================================
+server.port=8080
+
+# ======================================
+# DATABASE CONFIGURATION
+# ======================================
+# PostgreSQL Database Configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/document_analyzer
+spring.datasource.username=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+# Set your actual password in application.properties (not this example file)
+spring.datasource.password=${DB_PASSWORD:your_db_password_here}
+
+# JPA Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# ======================================
+# FILE UPLOAD CONFIGURATION
+# ======================================
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=50MB
+spring.servlet.multipart.max-request-size=100MB
+
+# Application Configuration
+app.file-storage.upload-dir=./uploads
+app.file-storage.max-files-per-request=10
+app.file-storage.max-file-size=52428800
+app.file-storage.allowed-types=pdf,doc,docx,txt,jpg,jpeg,png,zip,csv,xlsx
+
+# ======================================
+# EXTERNAL API CONFIGURATION
+# ======================================
+# Get your API keys from the respective services and set them in application.properties
+
+# NewsAPI.org - Sign up for free at https://newsapi.org
+app.api.newsapi.key=${NEWSAPI_KEY:your_newsapi_key_here}
+
+# GNews.io - Sign up for free at https://gnews.io
+app.api.gnews.key=${GNEWS_KEY:your_gnews_key_here}
+
+# Alpha Vantage - Sign up for free at https://www.alphavantage.co
+app.api.alpha-vantage.key=${ALPHA_VANTAGE_KEY:your_alpha_vantage_key_here}
+
+# OpenFDA API - No key required for basic usage
+app.api.fda.key=
+
+# AI Service Configuration
+# OpenAI-compatible API Key (e.g., Groq, Together AI - many offer free tiers)
+openai.api.key=${OPENAI_API_KEY:your_openai_compatible_api_key_here}
+
+# Cohere API Key - Sign up for free at https://cohere.ai
+app.api.cohere.key=${COHERE_KEY:your_cohere_api_key_here}
+
+# ======================================
+# API CONFIGURATION
+# ======================================
+app.api.timeout=10000
+app.api.retry-attempts=3
+
+# Mock Python Service Configuration
+app.python.service.url=http://localhost:5000/analyze
+app.python.service.timeout=30000
+
+# HTTP client configuration
+spring.http.client.connect-timeout=10000
+spring.http.client.read-timeout=30000
+
+# ======================================
+# BLOCKCHAIN CONFIGURATION
+# ======================================
+
+# Ganache Configuration (for development)
+app.blockchain.ganache.url=http://127.0.0.1:7545
+app.blockchain.ganache.network-id=1337
+app.blockchain.ganache.chain-id=1337
+
+# Smart Contract Configuration
+# Deploy the DocumentRegistry.sol contract and update this address
+app.blockchain.contract.address=${CONTRACT_ADDRESS:0x0000000000000000000000000000000000000000}
+
+# Private Key for Backend Service (Use environment variable in production)
+# WARNING: In production, use environment variables or secure key management
+app.blockchain.private-key=${BLOCKCHAIN_PRIVATE_KEY:your_ganache_private_key_here}
+
+# Gas Configuration
+app.blockchain.gas.price=20000000000
+app.blockchain.gas.limit=6000000
+
+# Blockchain Transaction Configuration
+app.blockchain.transaction.timeout=60000
+app.blockchain.transaction.retry-attempts=3
+app.blockchain.transaction.confirmation-blocks=1
+
+# Web3j Configuration
+app.web3j.client-connection-timeout=10000
+app.web3j.socket-connection-timeout=10000
+
+# Security Configuration
+app.blockchain.wallet.validation.enabled=true
+app.blockchain.signature.verification.enabled=true
+
+# Audit Configuration
+app.audit.retention-days=365
+app.audit.integrity-check.interval=3600000
+
+# Performance Configuration
+app.blockchain.batch-size=10
+app.blockchain.connection-pool.max=5
+
+# ======================================
+# DECENTRALIZED STORAGE CONFIGURATION (IPFS)
+# ======================================
+
+# Enable IPFS storage instead of local file storage
+app.file-storage.use-ipfs=false
+app.ipfs.enabled=false
+
+# IPFS Provider: pinata, infura, or local
+# Pinata is recommended for production (free tier available)
+app.ipfs.provider=pinata
+
+# Pinata Configuration (Get your keys from https://pinata.cloud)
+app.ipfs.pinata.api-key=${PINATA_API_KEY:your_pinata_api_key_here}
+app.ipfs.pinata.secret-key=${PINATA_SECRET_KEY:your_pinata_secret_key_here}
+app.ipfs.pinata.jwt=${PINATA_JWT:your_pinata_jwt_token_here}
+
+# Infura IPFS Configuration (Alternative - Get from https://infura.io)
+app.ipfs.infura.project-id=${INFURA_PROJECT_ID:your_infura_project_id_here}
+app.ipfs.infura.project-secret=${INFURA_PROJECT_SECRET:your_infura_project_secret_here}
+
+# Local IPFS Node Configuration (For Development)
+app.ipfs.local.api-url=http://localhost:5001
+
+# IPFS Gateway Configuration
+app.ipfs.gateway.url=https://gateway.pinata.cloud/ipfs/
+# Alternative gateways:
+# app.ipfs.gateway.url=https://ipfs.io/ipfs/
+# app.ipfs.gateway.url=https://ipfs.infura.io/ipfs/
+
+# ======================================
+# FILE ENCRYPTION CONFIGURATION
+# ======================================
+
+# Enable file encryption before storing in IPFS
+app.file-storage.encryption.enabled=false
+
+# Master encryption key (Base64 encoded)
+# CRITICAL: Use a secure key management service in production
+# Generate with: openssl rand -base64 32
+app.encryption.master-key=${ENCRYPTION_MASTER_KEY:generate_your_own_base64_key}
+
+# Key derivation salt (change this for your deployment)
+app.encryption.key-derivation-salt=YourUniqueDocumentAnalyzerSalt2024
+
+# ======================================
+# SECURITY CONFIGURATION
+# ======================================
+
+# JWT Configuration
+# Generate a secure secret key (at least 256 bits for HS256)
+# You can generate one with: openssl rand -base64 64
+app.jwt.secret=${JWT_SECRET:YourVerySecureJWTSecretKeyThatShouldBeAtLeast256BitsLongForHS256Algorithm}
+app.jwt.expiration=86400000
+# 86400000 milliseconds = 24 hours
+
+# CORS Configuration
+app.cors.allowed-origins=http://localhost:3000,http://localhost:8080
+app.cors.allowed-methods=GET,POST,PUT,DELETE,OPTIONS
+app.cors.allowed-headers=*
+
+# Security Configuration
+app.security.cors.allowed-origins=http://localhost:3000,http://localhost:8080
+app.security.public-endpoints=/api/auth/**,/api/blockchain/documents/health,/api/blockchain/documents/domains,/api/consult/health,/api/consult/domains,/api/documents/health,/api/documents/domains,/api/news/health,/api/news/domains
+
+# ======================================
+# NOTIFICATION CONFIGURATION
+# ======================================
+app.notifications.enabled=true
+app.notifications.email.enabled=false
+app.notifications.webhook.enabled=false
+app.notifications.console.enabled=true
+
+# ======================================
+# LOGGING CONFIGURATION
+# ======================================
+logging.level.com.duediligence=INFO
+logging.level.org.springframework.web.multipart=WARN
+logging.level.org.springframework.web.reactive.function.client=WARN
+
+# Development logging (uncomment for debugging)
+# logging.level.com.duediligence=DEBUG
+# logging.level.org.springframework.web.multipart=DEBUG
+# logging.level.org.springframework.web.reactive.function.client=DEBUG
+
+# ======================================
+# ENVIRONMENT-SPECIFIC OVERRIDES
+# ======================================
+# These can be overridden by environment variables or application-{profile}.properties files
+
+# Development specific
+#spring.profiles.active=dev
+
+# Production specific (uncomment and modify for production)
+#spring.profiles.active=prod
+#spring.jpa.show-sql=false
+#logging.level.com.duediligence=WARN
+
+# ======================================
+# SETUP INSTRUCTIONS
+# ======================================
+# 
+# 1. Copy this file to application.properties
+# 2. Replace all placeholder values with your actual credentials
+# 3. Never commit application.properties with real credentials to version control
+# 4. Use environment variables or external configuration in production
+# 
+# For API Keys:
+# - NewsAPI: https://newsapi.org (free tier available)
+# - GNews: https://gnews.io (free tier available)  
+# - Alpha Vantage: https://www.alphavantage.co (free tier available)
+# - OpenAI/Groq: Various providers offer free tiers
+# - Cohere: https://cohere.ai (free tier available)
+# - Pinata: https://pinata.cloud (free tier available)
+# - Infura: https://infura.io (free tier available)
+# 
+# For Blockchain:
+# - Install and run Ganache for local development
+# - Deploy your smart contract and update the contract address
+# - Use one of the Ganache account private keys for testing
+# 
+# For Production:
+# - Use a real PostgreSQL database
+# - Use environment variables for all sensitive data
+# - Enable HTTPS and proper security headers
+# - Consider using HashiCorp Vault or similar for key management
