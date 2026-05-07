@@ -206,7 +206,7 @@
 				</configuration>
 			</plugin>
 			<!-- Add this to your pom.xml in the <plugins> section -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.web3j</groupId>
 				<artifactId>web3j-maven-plugin</artifactId>
 				<version>4.9.8</version>
@@ -225,7 +225,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
