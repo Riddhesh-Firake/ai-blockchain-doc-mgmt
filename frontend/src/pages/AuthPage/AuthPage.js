@@ -182,7 +182,7 @@ function AuthPage({ onLogin }) {
               {!isLogin && (
                 <div className="form-group">
                   <label htmlFor="username" className="form-label">
-                    Username
+                    Username <span className="required-star">*</span>
                   </label>
                   <input
                     type="text"
@@ -201,7 +201,7 @@ function AuthPage({ onLogin }) {
 
               <div className="form-group">
                 <label htmlFor="email" className="form-label">
-                  Email Address
+                  Email Address <span className="required-star">*</span>
                 </label>
                 <input
                   type="email"
@@ -219,7 +219,7 @@ function AuthPage({ onLogin }) {
 
               <div className="form-group">
                 <label htmlFor="password" className="form-label">
-                  Password
+                  Password <span className="required-star">*</span>
                 </label>
                 <input
                   type="password"
@@ -238,7 +238,7 @@ function AuthPage({ onLogin }) {
               {!isLogin && (
                 <div className="form-group">
                   <label htmlFor="walletAddress" className="form-label">
-                    Wallet Address
+                    Wallet Address <span className="required-star">*</span>
                   </label>
                   <input
                     type="text"

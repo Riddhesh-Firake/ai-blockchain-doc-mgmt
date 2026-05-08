@@ -218,6 +218,11 @@
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
+.required-star {
+  color: var(--error-500);
+  margin-left: 4px;
+}
+
 .form-error {
   display: block;
   color: var(--error-500);
@@ -461,4 +466,4 @@
 /* Ensure the auth page container takes full width */
 .auth-page .main-content {
   margin-left: 0 !important;
-} 
+}
