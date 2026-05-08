@@ -39,8 +39,8 @@ public class WebSecurityConfig {
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
 
-    @Value("${app.security.cors.allowed-origins}")
-    private String allowedOrigins;
+    // @Value("${app.security.cors.allowed-origins}")
+    // private String allowedOrigins;
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
