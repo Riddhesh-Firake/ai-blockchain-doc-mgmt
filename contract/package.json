@@ -1,0 +1,12 @@
+{
+  "name": "contract-deployer",
+  "version": "1.0.0",
+  "description": "Deploys the DocumentRegistry smart contract",
+  "main": "scripts/deploy.js",
+  "scripts": {
+    "deploy": "node scripts/deploy.js"
+  },
+  "dependencies": {
+    "ethers": "^6.13.1"
+  }
+}
