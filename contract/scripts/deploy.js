@@ -3,22 +3,31 @@ const { ethers } = require('ethers');
 
 async function main() {
   try {
-    // Connect to the local Ganache network
-    const provider = new ethers.JsonRpcProvider('http://127.0.0.1:8545');
+    // Check for required environment variables
+    const privateKey = process.env.PRIVATE_KEY;
+    const rpcUrl = process.env.SEPOLIA_RPC_URL;
+
+    if (!privateKey || !rpcUrl) {
+      throw new Error('PRIVATE_KEY and SEPOLIA_RPC_URL environment variables are required.');
+    }
+
+    // Connect to the Sepolia testnet
+    const provider = new ethers.JsonRpcProvider(rpcUrl);
     
-    // Use the first account from Ganache
-    const signer = await provider.getSigner(0);
-    console.log('Deploying contract with account:', await signer.getAddress());
+    // Create a wallet instance from the private key
+    const wallet = new ethers.Wallet(privateKey, provider);
+    console.log('Deploying contract with account:', wallet.address);
 
     // Load contract artifacts
-    const abi = JSON.parse(fs.readFileSync('./build/contracts/DocumentRegistry.json', 'utf8')).abi;
-    const bytecode = '0x' + fs.readFileSync('./build/contracts/DocumentRegistry.json', 'utf8').bytecode;
+    const contractJson = JSON.parse(fs.readFileSync('./build/contracts/DocumentRegistry.json', 'utf8'));
+    const abi = contractJson.abi;
+    const bytecode = contractJson.bytecode;
 
     // Create a contract factory
-    const factory = new ethers.ContractFactory(abi, bytecode, signer);
+    const factory = new ethers.ContractFactory(abi, bytecode, wallet);
 
     // Deploy the contract
-    console.log('Deploying DocumentRegistry contract...');
+    console.log('Deploying DocumentRegistry contract to Sepolia...');
     const contract = await factory.deploy();
     
     // Wait for the deployment to be mined
